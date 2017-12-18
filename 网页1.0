@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>说到分娩，你需要知道的不只是疼</title>
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="css/demo.css">
+    <link rel="stylesheet" href="dist/jquery.vidbacking.css" type="text/css">
+    <link rel="stylesheet" href="css/style1.css" type="text/css">
+    <link rel='stylesheet'  href='css/history.css' type='text/css' media='all' />
+    <link rel="stylesheet" type="text/css" href="css/book.css">
+   
+    <script src="echarts.min.js"></script> 
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/book.js"></script>
+<script type='text/javascript' src="js/jquery.min.js"></script>
+<script type='text/javascript' src='js/lodash.js'></script>
+<script type='text/javascript' src='js/TweenMax.min.js'></script>
+<script type='text/javascript' src='js/DrawSVGPlugin.js'></script>
+<script type='text/javascript' src='js/namespaces.js'></script>
+<script type="text/javascript">
+function preload_images(images, functions) {
+    if(typeof functions === 'undefined') functions = {};
+    var loaded = 0;
+    for(var i=0; i<images.length; i++) {
+        ////console.log('preload '+images[i]);
+        var img = new Image();
+        img.onload = img.onerror = function() {
+            ////console.log(img.src + ' loaded');
+            var onImgParams = {
+                //img : img,
+                //index : i,
+                loadedPct : (loaded / images.length)
+            };
+            if( _.isFunction(functions.onImgLoad) ) functions.onImgLoad(onImgParams);
+
+            loaded++;
+            if(loaded >= images.length && _.isFunction(functions.onAllImgsLoaded)) {
+                ////console.log('all imgs loaded');
+                functions.onAllImgsLoaded()
+            }
+        };
+        img.src = images[i];
+    }// endfor
+}// preload_images()
+</script>
+    
+    <style>
+      .container1{
+		 width:100%;
+		 height:100%;
+		 color:#000;
+		 background-color:#CCC;
+		  } 
+	  .quto1{
+		  width:100%;
+		  height:auto;
+		  font-size:80px;
+		  text-align:left;
+		  }  
+	 .text{
+			width:1200px;
+			height:auto;
+			font-size:20px;
+			text-align:left;
+			margin-top:20px;
+			margin-bottom:20px;
+			}
+	 .quto2{
+			 width:100%;
+		   height:auto;
+		   font-size:80px;
+		   text-align:right;
+			}
+	.guodu{
+			width:1200px;
+			height:auto;
+			text-align:center;
+			font-size:20px;
+			margin-top:20px;
+			}
+	.box-five{
+			width: 550px;
+            height: 500px;
+            float: left;
+			
+			}
+		.box-six{
+			 width: 460px;
+            height: 200px;
+            float: right;
+			text-align:left;
+			font-size:20px;
+			}
+		.container-chart{
+			width:1100px;
+			height:auto;
+			border:10px;
+			}
+		.laiyuan{
+			width:550px;
+			height:auto;
+			font-size:10px;
+			text-align:center;
+			}
+		.tabulea{
+		width:1000px;
+		height:auto;
+		center:auto;
+		 }
+		
+    </style>
+    <style type="text/css">
+	    .baba1{
+			width:100%;
+			height:100%;
+			}
+        .box-one {
+            width: 600px;
+            height: 500px;
+            float: left;
+			margin-top:50px;
+        }
+        
+        .box-two {
+            width: 600px;
+            height: 600px;
+            float: right;
+			font-size:20px;
+        }
+        
+        .box-three {
+            width: 500px;
+            height: 500px;
+            float: left;
+        }
+        
+        .box-four {
+            width: 600px;
+            height: 500px;
+            float: right;
+			font-size:20px;
+        }
+		.clear{
+			clear:both;
+			margin-bottom:50px;
+			}
+    </style>
+</head>
+
+<body>
+    <div>
+        <div class="video-back">
+            <video poster="assets/picture1.png" autoplay muted loop class="vidbacking">
+			<source src="assets/women.mp4" type="video/mp4">
+		</video>
+            <h1>
+                <font color="white" size="10">说到分娩，你所需要知道的不只是疼</font>
+            </h1>
+            <p>When it comes to caesarean section, what you need to know is not just pain.</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <div class="clearfix"></div>
+        </div>
+
+        <script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+        <script src="dist/jquery.vidbacking.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(function() {
+                $('.video-back').vidbacking();
+            });
+        </script>
+    </div>
+    
+    <div class="container1">
+         <div class="quto1">"</div>
+         <center><div class="text">
+         <p>
+         2017年8月31日，陕西榆林孕妇马茸茸因生产过程疼痛难忍，且多次要求剖腹产被拒，从医院5楼坠楼身亡，一尸两命。家属和医院，就“谁拒绝了剖宫产”一事各执一词。事件陷入“罗生门”。
+         </p>
+         <p>&nbsp;</p>
+         <p><span style="font-size:15px">
+         On August 31, 2017, a pregnant woman in yulin, shaanxi province, was suffering from pain and suffering from a painful production process. She had been asked to be denied a caesarean section for several times. She died from her death on the fifth floor of the hospital. The family and the hospital, the "who rejected the cesarean section". The event ran into rashomon.
+         </span></p>
+         </div></center>
+         <div class="quto2">"</div>
+    </div>
+
+<div id="page" class="site">
+  <div id="content" class="site-content">
+  <center><div><span style="font-size:30px;">产妇跳楼时间线</span></div></center>
+    <div class="content-block history">
+      <div class="content-wrap small-wrap vert-spaced lined">
+        <div class="columns">
+          <div class="col third middled copy-col onScrollEnter">
+            <h3 class="chapter-headline">8月30日</h3>
+            <p class="chapter-copy s-text top-spaced">15时34分，产妇马某住院。 </p>
+          </div>
+          <!-- .col -->
+          <div class="col two-thirds middled ui-col rel onScrollEnter">
+            <div class="chapter-image img imgfill" style="background-image:url('images/FOTO1.jpg');"></div>
+            <div class="timeline-container circle-timelines">
+              <div class="fill-parent ui-timelines">
+                <svg version="1.1" id="Layer_1" x="0px" y="0px"
+									 viewBox="0 0 600 600" style="enable-background:new 0 0 600 600;" xml:space="preserve">
+                  <circle fill="none" stroke="#000000" stroke-miterlimit="10" cx="300" cy="300" r="300"/>
+                </svg>
+                <svg version="1.1" id="Layer_1" x="0px" y="0px"
+									 viewBox="0 0 600 600" style="enable-background:new 0 0 600 600;" xml:space="preserve">
+                  <circle fill="none" stroke="#000000" stroke-miterlimit="10" cx="300" cy="300" r="300"/>
+                </svg>
+              </div>
+              <!-- .ui-timelines -->
+              <div class="ui-chapters fill-parent">
+                <div class="ui-chapter current-chapter"> <span class="chapter-point"></span> <span class="chapter-label"></span> </div>
+                <div class="ui-chapter"> <span class="chapter-point"></span> <span class="chapter-label">8月31日</span> </div>
+                <div class="ui-chapter"> <span class="chapter-point"></span> <span class="chapter-label">1942</span> </div>
+                <div class="ui-chapter"> <span class="chapter-point"></span> <span class="chapter-label">1962</span> </div>
+                <div class="ui-chapter"> <span class="chapter-point"></span> <span class="chapter-label">1963</span> </div>
+                <div class="ui-chapter"> <span class="chapter-point"></span> <span class="chapter-label">1965</span> </div>
+                <div class="ui-chapter"> <span class="chapter-point"></span> <span class="chapter-label">1977</span> </div>
+                <div class="ui-chapter"> <span class="chapter-point"></span> <span class="chapter-label">1992</span> </div>
+                <div class="ui-chapter"> <span class="chapter-point"></span> <span class="chapter-label">1997</span> </div>
+                <div class="ui-chapter"> <span class="chapter-point"></span> <span class="chapter-label">2002</span> </div>
+                <div class="ui-chapter"> <span class="chapter-point"></span> <span class="chapter-label">2006</span> </div>
+                <div class="ui-chapter"> <span class="chapter-point"></span> <span class="chapter-label">2007</span> </div>
+                <div class="ui-chapter"> <span class="chapter-point"></span> <span class="chapter-label">2009</span> </div>
+                <div class="ui-chapter"> <span class="chapter-point"></span> <span class="chapter-label">2012</span> </div>
+                <div class="ui-chapter"> <span class="chapter-point"></span> <span class="chapter-label">2013</span> </div>
+                <div class="ui-chapter"> <span class="chapter-point"></span> <span class="chapter-label">2014</span> </div>
+                <div class="ui-chapter"> <span class="chapter-point"></span> <span class="chapter-label">2015</span> </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<script type='text/javascript' src='js/history.js'></script> 
+<script type='text/javascript'>
+/* <![CDATA[ */
+
+
+var _history_data = [
+        {"title":"8月30日","copy":"15时34分，产妇马某住院","img":{"src":"images\/FOTO1.jpg"}},
+        {"title":"8月31日","copy":"上午9时许，产妇马某入待产室","img":{"src":"images\/1940-1000x668.jpg"}},
+        {"title":"8月31日","copy":"10时59分，产妇马某给丈夫发短信要其送水果","img":{"src":"images\/1942-1000x670.jpg"}},
+        {"title":"8月31日","copy":"11时30许，主治医生检查马某胎心正常","img":{"src":"images\/FOTO2-1000x677.jpg"}},
+        {"title":"8月31日","copy":"16时00分，马某给丈夫发短信要其送巧克力和红牛","img":{"src":"images\/1963.jpg"}},
+        {"title":"8月31日","copy":"16时30分，医生监测马某胎心正常","img":{"src":"images\/Foto5-1000x608.jpg"}},
+        {"title":"8月31日","copy":"16时30分，医生检查产情进展顺利，宫口开到4.5厘米，胎心正常，医生决定继续生产","img":{"src":"images\/foto6-1000x625.jpg"}},
+        {"title":"8月31日","copy":"16时50分，丈夫给其发短信，叫通知护士出来拿纸，但未再回复","img":{"src":"images\/foto8-1000x682.jpg"}},
+        {"title":"8月31日","copy":"17时50分，医生检查产妇宫口近全开","img":{"src":"images\/foto9-1000x533.jpg"}},
+        {"title":"8月31日","copy":"18时05分，马某第一次从待产室出来","img":{"src":"images\/foto10-1000x563.jpg"}},
+        {"title":"8月31日","copy":"18时09分，马某在监控中显示第一次跪地","img":{"src":"images\/foto11-1000x667.jpg"}},
+        {"title":"8月31日","copy":"18时15分，马某在监控中显示第二次跪地","img":{"src":"images\/2007-1000x801.jpg"}},
+        {"title":"8月31日","copy":"18时40分左右，妇产科副主任霍军伟检查产妇，产妇情绪不稳定，拒绝继续生产想要剖腹产，宫口开到8-9厘米","img":{"src":"images\/foto13_alternativehs_2009-1000x584.jpg"}},
+        {"title":"2012","copy":"18时16分，在医务人员的搀扶下，产妇回到待产室","img":{"src":"images\/foto14_AlternativeHair2011_Bundy_Bundy_ABH_9185-1000x665.jpg"}},
+        {"title":"2013","copy":"19时19分，产妇第二次从待产室出来","img":{"src":"images\/foto15.jpg"}},
+        {"title":"2014","copy":"19时26分，产妇再次回到待产室","img":{"src":"images\/foto16-1000x602.jpg"}},
+        {"title":"2015","copy":"20时00许，产妇坠楼","img":{"src":"images\/foto17jpg-1000x667.jpg"}}];
+/* ]]> */
+</script> 
+<script type='text/javascript' src='js/page_about.js'></script>
+
+<center><div class="guodu">
+   <p>
+   这样的事件是今年才有吗？其实“马茸茸”事件绝非个例：
+   </p>
+   <p>&nbsp;</p>
+   <p><span style="font-size:15px">
+   Did this happen this year? In fact, the "ma" is not an isolated case:
+   </span></p>
+</div></center>
+<section id="knowledge" class="viewBlock">
+		<div class="bookBox">
+			<a class="lastBtn"><</a>
+			<a class="nextBtn">></a>
+			<div class="bookPage frist">
+				<img src="img/dataImg1.png" />
+			</div>
+			<div class="bookPage runPage">
+				<div class="bookWord">
+					<p><span style="font-size:30px; line-height:40px"><span style="font-size:45px;">2016</span>年11月21日，孕妇李丽云在怀孕期间患肺炎，根据医生建议剖腹产，可丈夫肖志军拒绝手术签字致孕妇李丽云死亡。</span></p>
+					<span class="pageNumber">1</span>
+				</div>
+				<img src="img/dataImg2.png" />	
+			</div>
+			<div class="bookPage runPage">
+				<div class="bookWord">				
+					<p><span style="font-size:30px; line-height:40px;"><span style="font-size:45px;">2016</span>年7月29日，河南虞城孕妇分娩时丈夫不在身边，不识字的婆婆负责拒签剖腹产的字，最终导致一尸两命。</span></p>
+					<span class="pageNumber">2</span>
+				</div>
+				<img src="img/dataImg3.png" />
+			</div>
+			<div class="bookPage runPage">
+				<div class="bookWord">
+					<p><span style="font-size:30px; line-height:40px;"><span style="font-size:45px;">2014</span>年8月28日，孕妇吴春花顺产生女，4小时候大出血身亡。</span></p>
+					<span class="pageNumber">3</span>
+				</div>
+				<img src="img/dataImg4.png" />
+			</div>
+			<div class="bookPage last">
+				<div class="bookWord">
+					<p><span style="font-size:24px; line-height:40px;">这些悲剧相对于众多的生产悲剧，可谓是杯水车薪，自古以来，分娩的孕妇可谓是都要到鬼门关走一趟。但近些年来频繁在媒体曝光的各种剖腹产悲剧，尤其是最近的马茸茸事件将剖腹产和顺产到底如何选择带到了公众的讨论视线中.</span></p>
+					<span class="pageNumber">4</span>
+				</div>
+			</div>
+		</div>
+	</section>
+    
+    <center><div class="text">
+   <p>
+   自古以来，成为母亲的女性几乎都到鬼门关走过一趟，更有年轻一代的女性开始对生育恐惧——有不少女性表示，非常害怕分娩，甚至以后不想生孩子。她们当中大多数是害怕分娩过程中的疼痛。但是这轻描淡写的“分娩”二字发生在一个孕妇身上究竟会有多疼？她们生孩子究竟会经历一个怎样的过程？
+   </p>
+   <p>&nbsp;</p>
+   <p><span style="font-size:15px">
+   Since the ancient times, becoming a mother to death through a trip, almost all the women are more women began to fear of birth of the younger generation - there are many women said are very afraid of childbirth, and even don't want to have children in the future. Most of them are afraid of pain during childbirth. But how much does the understatement of "childbirth" happen to a pregnant woman? What kind of process do they go through?
+   </span></p>
+</div></center>
+
+<div class="baba1">
+        <div class="box-one">
+            <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+            <div id="1main" style="width: 600px;height:500px;"></div>
+            <script type="text/javascript">
+                // 基于准备好的dom，初始化echarts实例
+                var myChart = echarts.init(document.getElementById('1main'));
+
+                // 指定图表的配置项和数据
+                var option = {
+                    textStyle: {
+                        color: 'black'
+                    },
+                    title: {
+                        text: '疼痛等级',
+                        x: 'center',
+                        top: '30'
+                    },
+                    color: ['#FFD2D2', '#FFB5B5', '#FF9797', '#ff7575', '#FF5151', '#FF2D2D', '#FF0000', '#EA0000', '#CE0000', '#AE0000', '#930000', '#750000', '#600000', '#4D0000', '#2F0000', '#000000'],
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: ['零级', '一级', '二级', '三级', '四级', '五级', '六级', '七级', '八级', '九级', '十级', '无痛', '轻度疼痛', '中度疼痛', '重度疼痛', '严重疼痛']
+                    },
+                    legend: {
+                        orient: 'vertical',
+                        x: 'right',
+                        top: 'center',
+                        data: ['零级', '一级', '二级', '三级', '四级', '五级', '六级', '七级', '八级', '九级', '十级', '无痛', '轻度疼痛', '中度疼痛', '重度疼痛', '严重疼痛'],
+                    },
+                    series: [{
+                        name: '疼痛度',
+                        type: 'pie',
+                        selectedMode: 'single',
+                        radius: [0, '30%'],
+
+                        label: {
+                            normal: {
+                                position: 'inner'
+                            }
+                        },
+                        labelLine: {
+                            normal: {
+                                show: true
+                            }
+                        },
+                        data: [
+
+                            {
+                                value: 9.1,
+                                name: '无痛',
+                                selected: true
+                            }, {
+                                value: 18.18,
+                                name: '轻度疼痛',
+                            }, {
+                                value: 27.27,
+                                name: '中度疼痛',
+                            }, {
+                                value: 27.27,
+                                name: '重度疼痛',
+                            }, {
+                                value: 18.18,
+                                name: '严重疼痛',
+                            }
+                        ]
+                    }, {
+                        name: '疼痛级数',
+                        type: 'pie',
+                        radius: ['40%', '55%'],
+                        label: {
+                            normal: {
+                                formatter: '{a|{a}}{abg|}\n{hr|}\n  {b}}  ',
+                                borderWidth: 1,
+                                borderRadius: 4,
+                                // shadowBlur:3,
+                                // shadowOffsetX: 2,
+                                // shadowOffsetY: 2,
+                                // shadowColor: '#999',
+                                // padding: [0, 7],
+                                rich: {
+                                    a: {
+                                        lineHeight: 22,
+                                        align: 'center'
+                                    },
+                                    // abg: {
+                                    //     backgroundColor: '#333',
+                                    //     width: '100%',
+                                    //     align: 'right',
+                                    //     height: 22,
+                                    //     borderRadius: [4, 4, 0, 0]
+                                    // },
+                                    hr: {
+                                        borderColor: '#aaa',
+                                        width: '100%',
+                                        borderWidth: 0.5,
+                                        height: 0
+                                    },
+                                    b: {
+                                        fontSize: 16,
+                                        lineHeight: 33
+                                    },
+                                    per: {
+
+                                        borderRadius: 2
+                                    }
+                                }
+                            }
+                        },
+                        data: [{
+                            value: 335,
+                            name: '零级'
+                        }, {
+                            value: 335,
+                            name: '一级'
+                        }, {
+                            value: 335,
+                            name: '二级'
+                        }, {
+                            value: 335,
+                            name: '三级'
+                        }, {
+                            value: 335,
+                            name: '四级'
+                        }, {
+                            value: 335,
+                            name: '五级'
+                        }, {
+                            value: 335,
+                            name: '六级'
+                        }, {
+                            value: 335,
+                            name: '七级'
+                        }, {
+                            value: 335,
+                            name: '八级'
+                        }, {
+                            value: 335,
+                            name: '九级'
+                        }, {
+                            value: 335,
+                            name: '十级'
+                        }]
+                    }]
+                };
+                myChart.setOption(option);
+            </script>
+        </div>
+        <div class="box-two">
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            <h3>&nbsp;&nbsp;&nbsp;&nbsp;疼痛等级类比： </h3>
+            <ul>
+                <li>0级：无痛。</li>
+                <li>1级：轻微痛。如蚊虫叮咬或者输液时扎针</li>
+                <li>2级：稍痛。如慢性肝炎患者，肝区隐痛</li>
+                <li>3级：微阵痛。如打脊柱麻醉针的痛，或者进行肌注的痛</li>
+                <li>4级：明显痛。如被人打耳光，此等级以上影响睡眠</li>
+                <li>5级：持续痛。如一头撞在门框上，此等级患者可能小声呻吟</li>
+                <li>6级：很痛。如被人用棒球棍殴打导致严重淤血，此等级患者可能会大声叫喊</li>
+                <li>7级：非常痛。如二度烧伤或者大面积流血性外伤，此等级患者将会无法入睡</li>
+                <li>8级：剧痛。如满清十大酷刑或手指被切断等。此等级患者心跳血压会大幅上升</li>
+                <li>9级：爆痛。如三叉神经痛、阑尾炎痛、癌痛。可导致一过性昏厥</li>
+                <li>10级：严重疼痛。如在没有打麻药的情况下进行剖腹产手术，将导致休克</li></ul>
+        </div>
+    </div>
+    <div class="baba2">
+        <div class="box-three">
+            <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+            <div id="2main" style="width: 600px;height:600px;"></div>
+            <script type="text/javascript">
+                // 基于准备好的dom，初始化echarts实例
+                var myChart = echarts.init(document.getElementById('2main'));
+
+                // 指定图表的配置项和数据
+                var option = {
+                    textStyle: {
+                        color: 'black'
+                    },
+                    title: {
+                        text: '分娩过程中的疼痛等级',
+                        x: 'center',
+                        top: '80'
+                    },
+                    color: ['#FFB5B5', '#FF9797', '#ff7575', '#FF5151', '#FF2D2D', '#FF0000', '#EA0000', '#CE0000', '#AE0000', '#930000', '#750000', '#600000', '#4D0000', '#000000'],
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: ['零级', '一级', '二级', '三级', '四级', '五级', '六级', '七级', '八级', '九级', '十级', '分娩期', '潜伏期', '活跃期']
+                    },
+
+
+
+                    legend: {
+
+                        orient: 'vertical',
+                        x: 'right',
+                        top: 'center',
+                        data: ['零级', '一级', '二级', '三级', '四级', '五级', '六级', '七级', '八级', '九级', '十级', '分娩期', '潜伏期', '活跃期'],
+
+                    },
+
+
+
+                    series: [{
+                            name: '分娩阶段',
+                            type: 'pie',
+                            selectedMode: 'single',
+                            radius: [0, '30%'],
+
+                            label: {
+                                normal: {
+                                    position: 'inner'
+                                }
+                            },
+                            labelLine: {
+                                normal: {
+                                    show: true
+                                }
+                            },
+                            data: [{
+                                value: 27.27,
+                                name: '分娩期',
+                                selected: true
+                            }, {
+                                value: 36.36,
+                                name: '潜伏期',
+                            }, {
+                                value: 36.36,
+                                name: '活跃期',
+                            }, ]
+                        },
+
+
+
+
+
+                        {
+                            name: '疼痛级数',
+                            type: 'pie',
+                            radius: ['40%', '55%'],
+                            label: {
+                                normal: {
+                                    formatter: '{a|{a}}{abg|}\n{hr|}\n  {b}',
+                                    borderWidth: 1,
+                                    borderRadius: 4,
+                                    // shadowBlur:3,
+                                    // shadowOffsetX: 2,
+                                    // shadowOffsetY: 2,
+                                    // shadowColor: '#999',
+                                    // padding: [0, 7],
+                                    rich: {
+                                        a: {
+                                            lineHeight: 22,
+                                            align: 'center'
+                                        },
+                                        // abg: {
+                                        //     backgroundColor: '#333',
+                                        //     width: '100%',
+                                        //     align: 'right',
+                                        //     height: 22,
+                                        //     borderRadius: [4, 4, 0, 0]
+                                        // },
+                                        hr: {
+                                            borderColor: '#aaa',
+                                            width: '100%',
+                                            borderWidth: 0.5,
+                                            height: 0
+                                        },
+                                        b: {
+                                            fontSize: 16,
+                                            lineHeight: 33
+                                        },
+                                        per: {
+
+                                            borderRadius: 2
+                                        }
+                                    }
+                                }
+                            },
+                            data: [{
+                                value: 335,
+                                name: '零级'
+                            }, {
+                                value: 335,
+                                name: '一级'
+                            }, {
+                                value: 335,
+                                name: '二级'
+                            }, {
+                                value: 335,
+                                name: '三级'
+                            }, {
+                                value: 335,
+                                name: '四级'
+                            }, {
+                                value: 335,
+                                name: '五级'
+                            }, {
+                                value: 335,
+                                name: '六级'
+                            }, {
+                                value: 335,
+                                name: '七级'
+                            }, {
+                                value: 335,
+                                name: '八级'
+                            }, {
+                                value: 335,
+                                name: '九级'
+                            }, {
+                                value: 335,
+                                name: '十级'
+                            }]
+                        }
+                    ]
+                };
+                myChart.setOption(option);
+            </script>
+        </div>
+        <div class="box-four">
+            <h3>&nbsp;&nbsp;&nbsp;&nbsp;分娩过程中的痛点</h3>
+            <ul align="right">
+                <h5><b>潜伏期：</b></h5>
+                <li>宫口零指扩张到三指。最开始是轻度的宫缩不适，犹如经期子宫痉挛一般，在随后的第一产程直至生产完毕时，随着宫缩加剧，疼痛的强度逐渐增强，压迫感和肌肉组织被拉伸的程度也随之增强，还会产生强烈的局部刺痛。整个生产过程平均要持续8小时，在这个过程中恶心、疲劳、痛苦并存。有的剖腹产妈妈是顺产改剖腹，因此也会经历产前阵痛。</li>
+                <h5><b>活跃期：</b></h5>
+                <li>宫口从三指扩张到十指。宫缩的强度可能会让你疼到完全说不了话。顺产分娩带给女性私处的疼痛是难以想象的，用10级这样的字眼来形容依然显得苍白。如果胎儿过大，胎位不正，妈妈的私处还面临着撕裂的风险，有时医生也需要进行会阴侧切术来助产。</li>
+                <h5><b>分娩期：</b></h5>
+                <li>这一阶段胎盘会娩出。胎盘的娩出过程大概需要5~30分钟。顺产之后虽然无需插尿管，但是怕疼而强忍着不去上厕所的妈妈却大有人在，因为每一次上厕所都太疼了。为了健康起见，自然不鼓励产妇憋尿，然而克服剧痛排尿排便，绝对是新妈妈们面临的一道难关。</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="clear"></div>
+    
+    <center><div class="text">
+   <p>
+   生孩子痛成这样，有办法可以缓解吗？答案是肯定的，然而大部分人想到的却只有剖宫产。
+   </p>
+    <p>&nbsp;</p>
+   <p>
+  剖宫产的产生原本是孕妇的生育指征达不到顺产的条件才产生的。但随着生育观念的改变和生育技术的提高，再加上顺产的痛级是多数产妇无法忍受的，越来越多的孕妇选择剖腹产。根据世界卫生组织在2010年公布的数据显示，中国的剖腹率也曾一度高达46.5%，高居世界首位。</p>
+   <p>&nbsp;</p>
+  <p><span style="font-size:15px;">
+  Is there a way to alleviate the pain of having a child? The answer is yes, but most people think of cesarean section.
+  </span></p>
+  <p>&nbsp;</p>
+  <p><span style="font-size:15px;">
+  The birth of cesarean section was originally produced by the condition that the fertility of a pregnant woman could not reach the yield. But with changes in fertility and improvements in fertility technology, plus the pain of childbirth, which most women can't bear, more and more pregnant women are opting for c-sections. According to figures released by the world health organization in 2010, China's celiotomy rate was at a time high of 46.5 percent, the highest in the world.
+  </span></p>
+</div></center>
+
+ <center><div class="container-chart" >
+        <div class="box-five"><div id="main" style="height: 400px; width:600px;"></div>
+            <script type="text/javascript">
+                var myChart = echarts.init(document.getElementById('main'));
+                var option = {
+                    title: {
+                        text: '1993-2013中国总体剖腹产率',
+                    },
+                    tooltip: {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        data: ['剖腹产率']
+                    },
+                    toolbox: {
+                        show: true,
+                        feature: {}
+                    },
+                    calculable: true,
+                    xAxis: [{
+                        type: 'category',
+                        boundaryGap: false,
+                        data: ['1993年', '1998年', '2003年', '2008年', '2013年']
+                    }],
+                    yAxis: [{
+                        type: 'value',
+                        axisLabel: {
+                            formatter: '{value} %'
+                        }
+                    }],
+                    series: [{
+                        name: '剖腹产率',
+                        type: 'line',
+                        data: [2.4, 6.1, 15.9, 27.2, 41]
+                    }]
+                };
+                myChart.setOption(option);
+            </script>
+            <div class="laiyuan">
+            数据来源：19993——2013五次国家卫生服务调查分析报告
+            </div>
+        </div>
+
+        <div class="box-six">
+           <p>
+         从1993年--2013年中国的剖腹产率的数据显示来看，中国的剖腹产率呈现不断上升的趋势。自1993年开始，每隔5年的剖腹产率增长分别为3.7%，9.8%，11.3%，13,8%，增长的幅度也在不断的变大。比起世界水平，2003年15.9%的剖腹产率就已经超过了世界卫生组织关于剖腹产率规定的10%-15%的标准的上限。
+          </p>
+           <p>&nbsp;</p>
+          <p><span style="font-size:15px">
+          From 1993 to 2013, China's c-section rate showed a rising tide of c-section rates. Since 1993, the rate of c-section growth has increased by 3.7%, 9.8%, 11.3% and 13,8% every five years, and the increase has been increasing. In 2003, 15.9 percent of c-section rates were above the world health organization's limit of 10 percent to 15 percent of the world health organization's guidelines for c-section rates
+          </span></p>
+        </div>
+    </div></center>
+    
+    <center><div class="tabulea">
+        <div id='viz1512114625506'><noscript><a href='#'><img alt='仪表板 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;31&#47;312008-2014&#47;1_1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='312008-2014&#47;1_1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;31&#47;312008-2014&#47;1_1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>
+      <script type='text/javascript'>
+            var divElement = document.getElementById('viz1512114625506');
+            var vizElement = divElement.getElementsByTagName('object')[0];
+            vizElement.style.minWidth = '800px';
+            vizElement.style.maxWidth = '1000px';
+            vizElement.style.width = '100%';
+            vizElement.style.minHeight = '400px';
+            vizElement.style.maxHeight = '800px';
+            vizElement.style.height = (divElement.offsetWidth *10) + 'px';
+            var scriptElement = document.createElement('script');
+            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+            vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script></div>
+        <div class="laiyuan">
+            数据来源：19993——2013五次国家卫生服务调查分析报告
+            </div>
+        </div></center>
+        
+        <center><div class="text">
+   <p>
+   当下，二十岁左右的女性也将逐步迈入婚姻和家庭的阵列，成为接下来的生育大军，而当我们问起他们对于顺产和剖腹产的看法时，大多数人对于二者的区别仅限于——顺产是生的时候痛，而剖腹产是生完之后痛。而当我们问道还有没有关于顺产和剖腹产进一步了解时，大多数都摇摇头，表示不太了解。
+   </p>
+   <p>&nbsp;</p>
+   <p>
+ 其实顺产和剖宫产除了在疼痛方面不同外，还有很多区别，两者并不是可以随意切换的模式，也不是可以相互替代的关系。</p>
+  <p>&nbsp;</p>
+  <p>
+  那两者究竟有何区别？
+  </p>
+    <p>&nbsp;</p>
+  <p><span style="font-size:15px;">
+ At present, around the age of 20 women will progressively the array of marriage and family, to become the next bearing force, and when we asked about their perception of natural birth and cesarean section, for most people the difference between the two is limited to - natural birth is raw pain, and pain after a cesarean section was born. When we asked if there was any further understanding of vaginal birth and caesarean section, most shook their heads, indicating a lack of understanding
+ </span> </p>
+    <p>&nbsp;</p>
+  <p><span style="font-size:15px;">
+  In fact, in addition to the pain, there are many differences between the natural and the cesarean section. The two are not models that can be switched at will, and they are not interchangeable.
+ </span> </p>
+    <p>&nbsp;</p>
+      <p><span style="font-size:15px;">What's the difference between the two?</span></p>
+</div></center>
+</body>
+
+</html>
